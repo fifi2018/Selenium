@@ -1,0 +1,12 @@
+INDEX VERSION 1.130+C:\Users\Admin\Desktop\Java-Selenium\.metadata\.plugins\org.eclipse.jdt.core
+145426100.index
+3878951631.index
+1002753738.index
+1722314653.index
+1473718484.index
+923324979.index
+2871317662.index
+722429936.index
+35016878.index
+2863078834.index
+4129087514.index

@@ -1,0 +1,98 @@
+package com.qa.orange_test;
+
+import org.junit.After;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class OrangeStep {
+	
+   WebDriver driver; 
+   String name= "Phyllis";
+   String surname = "Gundu"; 
+   String numID = "0028";
+   
+   @Before
+   public void setUp() {
+  System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
+   driver = new ChromeDriver();
+   //driver.manage().window().maximize();
+}
+   
+   @Given("^the Add Employee Tab$")
+   public void the_Add_Employee_Tab() throws Throwable {
+ driver.get("http://opensource.demo.orangehrmlive.com/index.php/pim/addEmployee");
+	   
+	   driver.findElement(By.id("txtUsername")).click();
+	   driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+	   Thread.sleep(2000);
+	   
+	   driver.findElement(By.id("txtPassword")).click();
+	   driver.findElement(By.id("txtPassword")).sendKeys("admin");
+	   Thread.sleep(2000);
+	   driver.findElement(By.id("btnLogin")).click();
+   }
+
+	
+
+	@When("^I fill out the Employee Details correctly$")
+	public void i_fill_out_the_Employee_Details_correctly() throws Throwable  {
+			
+		//Adding employee details
+		driver.findElement(By.id("firstName")).click();
+		driver.findElement(By.id("firstName")).sendKeys(name);
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("lastName")).click();
+		driver.findElement(By.id("lastName")).sendKeys(surname);
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("employeeID")).click();
+		driver.findElement(By.id("employeeID")).sendKeys(numID);
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("chkLogin")).submit();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("btnSave")).click();
+		
+	}
+
+	
+	@When("^I choose to create Login Details$")
+	public void i_choose_to_create_Login_Details() {
+		
+	
+	  
+	   
+	}
+
+	@When("^I fill out the Login Details correctly$")
+	public void i_fill_out_the_Login_Details_correctly() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^I click the Save button$")
+	public void i_click_the_Save_button() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^I can see information about the user$")
+	public void i_can_see_information_about_the_user() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+	@After
+	public void closeWindow() {
+		driver.quit();
+	}
+
+}
